@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "Red";
+
+        for (let i = 0; i < 8; i++) {
+            ctx.fillRect(10,i*10,100,100);
+        }
+        ctx.strokeStyle = "DeepPink";
+        ctx.lineWidth = 5;
+        ctx.strokeRect(110,180,100,30);
+
+        ctx.lineWidth = 2;
+    ctx.strokeStyle = "Green";
+
+    ctx.beginPath();
+    ctx.arc(50*3, 50, 20, 0, Math.PI / 2, false);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(100*2, 50, 20, 0, Math.PI, false);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(250, 50, 20, 0, Math.PI * 2, false);
+    ctx.stroke();
+
+    var circle = function (x, y, radius) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+      ctx.stroke();
+    };
+
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "Pink";
+    circle(70, 100, 10);
+    ctx.strokeStyle = "Orange";
+    circle(70, 100, 20);
+    ctx.strokeStyle = "Yellow";
+    circle(70, 100, 30);
+    ctx.strokeStyle = "Green";
+    circle(70, 100, 40);
+    ctx.strokeStyle = "Blue";
+    circle(70, 100, 50);
+    ctx.strokeStyle = "Purple";
+    circle(70, 100, 60);
+
+    </script>
+</body>
+</html>

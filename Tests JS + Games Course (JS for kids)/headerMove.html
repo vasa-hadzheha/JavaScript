@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseMove</title>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+    <h1 id="heading">0</h1>
+    <script>
+         var direction = 'right';
+    var offset = 0;
+      // offset func set element position left-X and top-Y
+      //here we set position for header X-0, Y-0;
+    $("#heading").offset({ left: offset, top: offset });
+
+    var moveHeading = function () {
+      if (direction === 'right') {
+        //here we will be use left to increase X coordinate on 1 that`s why header will move right
+        $("#heading").offset({ left: offset });
+        //our header will move righr on 1pixel
+        offset++;
+        if (offset > 200) {
+          //we set 0 value on offser parameter becouse we will increase him again
+          offset = 0;
+          direction = 'down';
+        }
+      } else if (direction === 'down') {
+        //here we will be use left to increase Y coordinate on 1 that`s why header will move down
+        $("#heading").offset({ top: offset });
+        //our header will move down on 1pixel
+        offset++;
+        if (offset > 200) {
+          //we set 200 value on offser parameter becouse we will reduce him to make him move back
+          offset = 200;
+          direction = 'left';
+        }
+      } else if (direction === 'left') {
+        $("#heading").offset({ left: offset });
+        //our X coordinates`s value were 200 and we reduce it on 1 to make him move back(left)
+        offset--;
+        if (offset < 0) {
+          //we set 200 value on offser parameter becouse we will reduce him to make him move back or in next case up
+          offset = 200;
+          direction = 'up';
+        }
+      } else if (direction === 'up') {
+        $("#heading").offset({ top: offset });
+        //our Y coordinates`s value were 200 and we reduce it on 1 to make him move back,(up)
+        offset--;
+        if (offset < 0) {
+          //set value 0 that our header  move righr on 1pixel
+          offset = 0;
+          //start cicle again
+          direction = 'right';
+        }
+      }
+    };
+
+    var speed = 120;
+    //push function one time in seted miliseconds
+    var intervalId=setInterval(moveHeading, speed);
+    console.log(intervalId);
+    var i=1;
+    //function to stop moving of header
+    
+    function clickHandler (event){
+      
+      $("#heading").text(i++)
+      console.log("Click! "+event.pageX+" "+event.pageY);
+      speed/=2;
+      if(parseInt($("#heading").text())>10){
+          setTimeout(function(){$("#heading").text("You win!");},500)
+          clearInterval(intervalId);
+          console.log(intervalId);
+        }else {
+          intervalId = setInterval(moveHeading, speed)
+          console.log(intervalId)
+        }
+    }
+    $("h1").click(clickHandler);
+    </script>
+</body>
+</html>

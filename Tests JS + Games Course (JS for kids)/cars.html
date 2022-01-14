@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cars</title>
+        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    </head>
+    <body>
+    <script>
+        var Car = function(x,y){
+            this.x = x;
+            this.y = y;
+            //this.speed = 100;
+            this.draw();
+        };
+        Car.prototype.draw = function () {
+            // ''- let us use "" inside the ''
+            var carHtml = '<img width="100" height="100" src="https://w7.pngwing.com/pngs/265/895/png-transparent-vintage-car-illustration-mint-green-car-compact-car-car-accident-retro-thumbnail.png">';
+
+             this.carElement = $(carHtml);
+
+             this.carElement.css({
+                position: "absolute",
+                left: this.x,
+                top: this.y
+            });
+
+      $("body").append(this.carElement);
+    };
+        Car.prototype.moveRight = function (distance) {
+            this.x += distance;
+
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+
+        Car.prototype.moveLeft = function (distance) {
+            this.x -= distance;
+
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+
+        Car.prototype.moveUp = function (distance) {
+            this.y -= distance;
+
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+
+        Car.prototype.moveDown = function (distance) {
+            this.y += distance;
+
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+        });
+        };
+        var tesla = new Car(10,20);
+        var nissan = new Car(100,200);
+        // nissan.moveDown(200);
+        // tesla.moveRight(100);
+        setInterval(function(){tesla.moveRight(Math.floor(Math.random()*5))}, 30);
+        setInterval(function(){nissan.moveRight(Math.floor(Math.random()*5))}, 30);
+    </script>
+</body>
+</html>

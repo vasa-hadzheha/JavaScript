@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JS</title>
+    <script src="./JS_tests_interactiveAndClick.html" defer></script>
+    <!-- console script for using functions  -->
+    <!-- <script>
+        function add(num1,num2){
+            return num1+num2;
+        }
+        function multiply(num1,num2){
+            return num1*num2;
+        }
+        console.log(add(multiply(36325,9824),777));
+        function areArraySame(arr1,arr2){
+            for (let index = 0; index < arr1.length; index++) {
+                if(arr1.length!=arr2.length){
+                    return false;
+                }
+                
+                if(arr1[index]!=arr2[index]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.log(areArraySame([2,31,2],[2,31,2]));
+        console.log(areArraySame([2,1,2],[2,31,2]));
+        console.log(areArraySame([0,1,2],[999999,31,2]));
+        console.log(areArraySame([2,1,2],[2,31,2,898989]));
+    </script> -->
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+    <h1 id="heading"> Hello world!</h1>
+    <script>
+        //parameter  vslue 0 
+        var leftOffset =0;
+        function moveHeading(){
+            //offset function change header coordinates (left-X coordinates top-Y coordinates)
+            $("#heading").offset({left:leftOffset});
+            //increase X coordinates on 1 pixel 
+            leftOffset++;
+            if(leftOffset>200){
+                //set X coordinates to start position 
+                leftOffset=0;
+            }
+        };
+        //push function one time in 30 miliseconds (or less,faster)
+        setInterval(moveHeading,30);
+        
+        //function which will write coordinates where you click on header in console
+        function clickHandler (event){
+            console.log("Click! "+event.pageX+" "+event.pageY);
+        };
+        $("h1").click(clickHandler);
+    </script>
+</body>
+</html>

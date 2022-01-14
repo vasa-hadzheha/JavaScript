@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseMove</title>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+    <h1 id="heading"> Hello world!</h1>
+    <script>
+        //function which will move header on that coordinates where is your mouse
+        //mousemove func get coordinates of mouse  offset func set to position header where is cursor
+        //event get coordinates of cursor
+        $("html").mousemove(function(event){
+            $("#heading").offset({
+                left:event.pageX,
+
+                top: event.pageY
+            });
+        });
+        //func replace header in that place where you click the principle of work is the same as in function before
+    //     $("html").click(function (event) {
+    //   $("#heading").offset({
+    //     left: event.pageX,
+    //     top: event.pageY
+    //   });
+    // });
+    </script>
+</body>
+</html>
