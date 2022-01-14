@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebNews</title>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="./lab4.1.js" defer></script>
+    <style>
+    td{
+        border: 6px groove rgb(0, 255, 136);
+    }
+    th{
+        border: 10px groove rgb(7, 102, 65);
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <legend><strong><h3>Додати новину</h3></strong></legend>
+            <label for="title"> Заголовок: </label>
+            <input type="text" id="title" placeholder="Введіть заголовок"> <br><br>
+
+            <label for="describe"> Короткий зміст: </label>
+            <input type="text" id="describe" placeholder="Введіть короткий зміст"> <br><br>
+
+            <label for="content"> Новини: </label>
+            <textarea id="content" placeholder="Введіть текст новини"></textarea> <br><br>
+
+            <label for="date"> Дата: </label>
+            <input type="date" id="date" placeholder="Введіть дату публікації"> <br><br>
+
+            <label for="views"> Перегляди: </label>
+            <input type="number" min="1" id="views" placeholder="Введіть бажану кількість переглядів"> <br><br>
+            <button type="submit"  id="btn" onclick="t1.addItem()"> Створити </button> <br><br>
+            <p id="test"></p>
+    </form>
+</body>
+</html>
