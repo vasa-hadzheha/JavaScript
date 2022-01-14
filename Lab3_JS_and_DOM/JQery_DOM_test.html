@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing the DOM and JQery</title>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+    <h1 id="main-heading">Hello world!</h1>
+    <h2> lsdfl;askdl;f;sldf;</h2>
+   </body>
+</html>
+<script >
+        // var names = ["Vasyl","Alex","Andry","Tom","Yri"];
+        // for (let i = 0; i < names.length; i++) {   
+        // $("body").append("<p>" + names[i] + "</p>").hide().fadeIn(3000);
+        // }
+        // $("#main-heading").text("My Friends")
+        //     $("p").append(" smells")
+
+            var fadeTime;
+    for (var i = 0; i < 5; i++) {
+      fadeTime = (i + 1) * 1000;
+      $("#main-heading").fadeOut(fadeTime / 2).fadeIn(fadeTime / 2);
+    }
+    $("#main-heading").delay(5000).fadeOut(2000).fadeIn(2000);
+            $("h2").fadeTo(2000,0.3)
+        for (let i = 0; i < 3; i++) {
+            var hobby = prompt("Tell me one of your hobbies!:");
+            $("body").append("<p>" + hobby + "</p>");
+        }
+            $("h1").fadeOut(1000);
+            $("h1").fadeIn(1000);
+            
+     $("body").append("<p> This is a new paragraph</p>");
+
+     $("#main-heading").slideUp(2000).slideDown(1000);
+     $("body").append("<h2></h2>");
+     $("h2").text("This will fade out").fadeOut(3000).fadeIn(2000);
+    </script>
